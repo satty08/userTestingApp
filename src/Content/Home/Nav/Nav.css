@@ -1,0 +1,47 @@
+@media only screen and (min-width:800px) {
+    .nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        max-width: 100%;
+    }
+    
+    .leftNav {
+        padding: 0px 10px;
+        justify-content: space-evenly;
+        flex: 0.6;
+        font-size: large;
+        font-family: 'Proxima Nova', sans-serif;
+        font-weight: 600;
+    }
+    
+    .leftNav p:hover{
+        color: rgb(163, 163, 245);
+        border-bottom: 2px solid rgb(163, 163, 245);
+        cursor: pointer;
+    }
+    
+    .rightNav{
+        flex: 0.4;
+    }
+    
+    .testLogin{
+        padding: 18px;
+        border-radius: 99px;
+        background: white;
+        color: rgb(163, 163, 245);
+        border-color: rgb(163 163 245/var(--tw-border-opacity));
+        border-width: 2px;
+        transition-timing-function: cubic-bezier(.4,0,.2,1);
+        --tw-border-opacity: 1;
+        --tw-bg-opacity: 1;
+        transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-text-decoration-color,-webkit-backdrop-filter;
+    }
+    
+    .testLogin:hover{
+        background-color: rgb(163, 163, 245);
+        color: white;
+        cursor: pointer;
+    }
+}
