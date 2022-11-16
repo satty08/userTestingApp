@@ -1,4 +1,101 @@
-.video{
-    width: 320px;
-    height: 400px;
+.main{
+    display: flex;
+    flex-direction: column;
+    /* padding-top: 30px; */
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.firstBlock{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.leftBlock{
+    flex: 0.5;
+    margin-left: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding-right: 30px;
+    
+}
+
+.getStarted{
+    height: 70px;
+    width: 150px;
+    font-size: 17px;
+    border-radius: 49px;
+    background-color: white;
+    color: rgb(163, 163, 245);
+    border: 2px solid rgb(163, 163, 245);
+    margin: 20px;
+}
+
+.getStarted:hover{
+    height: 70px;
+    width: 150px;
+    font-size: 17px;
+    border-radius: 49px;
+    background-color: rgb(163, 163, 245);
+    color: white;
+    border: 2px solid rgb(163, 163, 245);
+    cursor: pointer;
+}
+
+h1{
+    font-size: 7vh;
+    font-family: 'Merriweather', serif;
+}
+
+p{
+    font-size: 3vh;
+    font-family: 'Merriweather', serif;
+    text-align: justify;
+}
+
+.rightBlock{
+    flex: 0.5;
+    margin-right: 240px;
+}
+
+.imageAsset{
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.solution{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.solution h2{
+    font-size: 7vh;
+}
+
+.solutionCard{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.customerStories{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.customerStories h2{
+    font-size: 7vh;
 }

@@ -5,6 +5,7 @@
         justify-content: space-evenly;
         align-items: center;
         max-width: 100%;
+        padding-bottom: 15px;
     }
     
     .leftNav {
@@ -16,14 +17,19 @@
         font-weight: 600;
     }
     
-    .leftNav p:hover{
+    .nav p:hover{
         color: rgb(163, 163, 245);
         border-bottom: 2px solid rgb(163, 163, 245);
         cursor: pointer;
     }
     
     .rightNav{
-        flex: 0.4;
+        padding: 0px 10px;
+        justify-content: space-evenly;
+        flex: 0.6;
+        font-size: large;
+        font-family: 'Proxima Nova', sans-serif;
+        font-weight: 600;
     }
     
     .testLogin{

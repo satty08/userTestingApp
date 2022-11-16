@@ -1,5 +1,6 @@
 import React from 'react';
-import './Nav.css'
+import './Nav.css';
+import {Link} from 'react-router-dom';
 
 function Nav() {
   return (
@@ -7,11 +8,12 @@ function Nav() {
         <div className='nav leftNav'>
             <img className='logo' src='' alt='Logo' />
             <p>About</p>
-            <p>Pricing</p>
+            <p>Solutions</p>
             <p>Contact Us!</p>
         </div>
         <div className='nav rightNav'>
-            <button className='testLogin'>Get Paid to Test</button>
+          <Link to="/login"><p>Log In</p></Link>
+          <button className='testLogin'>Get Paid to Test</button>
         </div>
     </div>
   )
