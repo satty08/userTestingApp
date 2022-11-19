@@ -16,6 +16,11 @@
         font-family: 'Proxima Nova', sans-serif;
         font-weight: 600;
     }
+
+    p{
+        color: rgb(12 22 61/var(--tw-text-opacity));;
+        text-decoration: inherit;
+    }
     
     .nav p:hover{
         color: rgb(163, 163, 245);

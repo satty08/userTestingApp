@@ -1,0 +1,7 @@
+.login{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://wallpaperaccess.com/full/1900851.png');
+}

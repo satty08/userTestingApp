@@ -12,7 +12,7 @@ function Nav() {
             <p>Contact Us!</p>
         </div>
         <div className='nav rightNav'>
-          <Link to="/login"><p>Log In</p></Link>
+          <p><Link to='/login' >Log In</Link></p>
           <button className='testLogin'>Get Paid to Test</button>
         </div>
     </div>
