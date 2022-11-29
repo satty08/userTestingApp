@@ -8,11 +8,11 @@ function Nav() {
         <div className='nav leftNav'>
             <img className='logo' src='' alt='Logo' />
             <p>About</p>
-            <p>Solutions</p>
+            <Link to='#solutions'><p>Solutions</p></Link>
             <p>Contact Us!</p>
         </div>
         <div className='nav rightNav'>
-          <p><Link to='/login' >Log In</Link></p>
+          <Link to='/login'><p>Log In</p></Link>
           <button className='testLogin'>Get Paid to Test</button>
         </div>
     </div>

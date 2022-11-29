@@ -26,7 +26,7 @@ function Main() {
         </div>
       </div>
       {/* Solutions Section */}
-      <div className='solution'>
+      <div id='solutions' className='solution'>
         <h2>Solutions</h2>
         <div className='solutionCard'>
         <PlanCard
