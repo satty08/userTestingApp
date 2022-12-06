@@ -1,18 +1,22 @@
 import React from 'react';
 import './Nav.css';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Nav() {
+
+  const user = useSelector(state => state.user);
+
   return (
     <div className='nav'>
         <div className='nav leftNav'>
             <img className='logo' src='' alt='Logo' />
             <p>About</p>
-            <Link to='#solutions'><p>Solutions</p></Link>
+            <p>Solutions</p>
             <p>Contact Us!</p>
         </div>
         <div className='nav rightNav'>
-          <Link to='/login'><p>Log In</p></Link>
+          <NavLink to='/login'><p>Login</p></NavLink>
           <button className='testLogin'>Get Paid to Test</button>
         </div>
     </div>
