@@ -1,0 +1,68 @@
+.userPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.userPage_Logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(163, 163, 245);
+}
+
+.userPage_Nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: left;
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+
+.userPage_NavLeft{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userPage_NavLeft p{
+    margin: 0px 15px;
+    margin-top: 0;
+}
+
+.userPage_NavLeft p:hover{
+    cursor: pointer;
+}
+
+.userPage_NavRight{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.userPage_NavRight p{
+    margin: 0px 10px;
+}
+
+.userPage_NavRight p:hover{
+    cursor: pointer;
+}
+
+.active{
+    background-color: rgb(163, 163, 245);
+    color: white;
+    /* border-radius: 9px; */
+}
+
+.userPage_Main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}

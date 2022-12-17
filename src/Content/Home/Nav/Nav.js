@@ -1,11 +1,22 @@
 import React from 'react';
 import './Nav.css';
-import {NavLink} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function Nav() {
+  const navigate = useNavigate();
+  const isLogged = useSelector(state => state.isLoggedIn);
+  console.log(isLogged);
 
-  const user = useSelector(state => state.user);
+  const testHandler = () => {
+    localStorage.setItem('userType', 'tester');
+    navigate('/login');
+  }
+
+  const loginHandler = () => {
+    localStorage.setItem('userType', 'company');
+    navigate('/login');
+  }
 
   return (
     <div className='nav'>
@@ -13,11 +24,11 @@ function Nav() {
             <img className='logo' src='' alt='Logo' />
             <p>About</p>
             <p>Solutions</p>
-            <p>Contact Us!</p>
+            <p onClick={() => {navigate('/contactUs')}}>Contact Us!</p>
         </div>
         <div className='nav rightNav'>
-          <NavLink to='/login'><p>Login</p></NavLink>
-          <button className='testLogin'>Get Paid to Test</button>
+          {!isLogged ? <p onClick={loginHandler}>Login</p> : ''}
+          <button onClick={testHandler} className='testLogin'>Get Paid to Test</button>
         </div>
     </div>
   )

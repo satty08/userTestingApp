@@ -1,0 +1,28 @@
+.userProfile{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.userProfile_sidebar{
+    flex: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userProfile_sidebar .logo{
+    flex: 0.1;
+}
+
+.userProfile_sidebar .userProfile_nav{
+    flex: 0.9;
+}
+
+.userProfile_tiles{
+    flex: 90%;
+    align-items: center;
+    justify-content: center;
+}

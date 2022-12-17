@@ -1,0 +1,4 @@
+.userPageCard{
+    display: flex;
+    flex-direction: column;
+}
