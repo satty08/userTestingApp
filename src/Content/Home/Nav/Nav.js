@@ -1,12 +1,12 @@
 import React from 'react';
 import './Nav.css';
 import {useNavigate} from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import FadeMenu from './NavComponent';
 
 function Nav() {
   const navigate = useNavigate();
-  const isLogged = useSelector(state => state.isLoggedIn);
-  console.log(isLogged);
+  const isLogged = localStorage.getItem('isLoggedIn');
+  console.log(!isLogged);
 
   const testHandler = () => {
     localStorage.setItem('userType', 'tester');
@@ -23,13 +23,13 @@ function Nav() {
         <div className='nav leftNav'>
             <img className='logo' src='' alt='Logo' />
             <p>About</p>
-            <p>Solutions</p>
+            <FadeMenu />
             <p onClick={() => {navigate('/contactUs')}}>Contact Us!</p>
         </div>
-        <div className='nav rightNav'>
-          {!isLogged ? <p onClick={loginHandler}>Login</p> : ''}
+        {/* <div className='nav rightNav'>
+          {!isLogged ? '' : <p onClick={loginHandler}>Login</p>}
           <button onClick={testHandler} className='testLogin'>Get Paid to Test</button>
-        </div>
+        </div> */}
     </div>
   )
 }

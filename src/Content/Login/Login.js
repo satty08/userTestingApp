@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../../features/user/userSlice';
 import { auth, db } from '../../firebase';
 import { addDoc, collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
@@ -12,59 +10,61 @@ function Login() {
   const[email, setEmail] = useState('');
   const[password, setPassword] = useState('');
   const[confirmPass, setConfirmPass] = useState('');
+  const[name, setName] = useState('');
 
   const accountStatus = validate ? 'Create Account' : 'Click to login';
   const heading = validate ? 'Log In' : 'Create Account';
   const buttonHeading = validate ? 'Log In' : 'Sign Up';
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const submitHandlerSignUp = async() => {
     if(!validate && password === confirmPass){
       createUserWithEmailAndPassword(auth,email, password).then(
-        () => console.log('Signed Up Successfully')
+        () => localStorage.setItem('isLoggedIn', true)
       );
         const data = {
             email: email,
-            firstName: '',
-            lastName: '',
-            phone: '',
-            gender: '',
-            userType: 'tester',
+            name: name,
+            userType: localStorage.getItem('userType'),
             currentBalance: 0
           }
       const userDataRef = await addDoc(collection(db, 'userData'), data);
-      dispatch(login(data));
+      localStorage.setItem('user', data);
       const id = userDataRef.id;
-      navigate(`/user/${id}`)
+      localStorage.setItem('userId', id);
+      navigate(`/tasks`)
     } else if(validate){
       signInWithEmailAndPassword(auth, email, password).then(() => {
+        localStorage.setItem('isLoggedIn', true);
         let userId;
         const q = query(collection(db, 'userData'),where('email', '==', email));
         const userDoc = getDocs(q);
         userDoc
-          .then(data => userId = data.docs[0].id)
+          .then(data => {
+            userId = data.docs[0].id;
+            localStorage.setItem('userId', userId);
+          })
           .then(() => {
             const docRef = doc(db, 'userData', userId);
             getDoc(docRef)
               .then((doc) => {
                 const userData = doc.data();
-                const data = {userData, userId}
-                console.log(data);
-                dispatch(login(data));
-                navigate('/tasks');
+                if(userData.userType === localStorage.getItem('userType')){
+                  const data = JSON.stringify(userData);
+                  localStorage.setItem('user', data);
+                  navigate('/tasks');
+                } else{
+                  navigate('/error');
+                }                
               }).catch(e => {
                 console.error(e);
-              })
-          })
-        // const docRef = doc(db, 'userData', userId);
-        // const userData = getDoc(docRef);
-        // console.log(userData);
-      })
+              });
+          });
+      });
     } else{
       console.error('User Error');
-    }
-  }
+    };
+  };
 
   return (
     <div className='login'>
@@ -72,14 +72,15 @@ function Login() {
       <div className='login_panel'>
         <h2 className='login_heading'>{heading}</h2>
         <div>
-          <form className='login_form' onSubmit={submitHandlerSignUp}>
+          <div className='login_form' onSubmit={submitHandlerSignUp}>
+            {!validate ? <input className='' placeholder='Name' onChange={e => setName(e.target.value)} /> : <></>}
             <input className='' type='Email' placeholder='Email' onChange={e => setEmail(e.target.value)} required/>
             <input className='' type='Password' placeholder='Password' onChange={e => setPassword(e.target.value)} required/>
             {!validate ?
               <input className='' type='Password' placeholder='Confirm Password' onChange={e => setConfirmPass(e.target.value)} required/> : <></>
             }
             <button className='login_submitButton' type='submit' onClick={submitHandlerSignUp}>{buttonHeading}</button>
-          </form>
+          </div>
         </div>
         <h5 className='login_accountStatus' onClick={() => setValidate(!validate)}>{accountStatus}</h5>
       </div>

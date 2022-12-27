@@ -6,7 +6,7 @@
 }
 
 .userProfile_sidebar{
-    flex: 10%;
+    flex: 15%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,7 +22,17 @@
 }
 
 .userProfile_tiles{
-    flex: 90%;
+    flex: 85%;
     align-items: center;
     justify-content: center;
+}
+
+.userProfile_nav:hover{
+    cursor: pointer;
+}
+
+.active{
+    background-color:rgb(163, 163, 245);
+    color: white;
+    border-radius: 9px;
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import PlanCard from './PlanCard/PlanCard';
 import './Main.css';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 function Main() {
   return (
@@ -22,7 +24,7 @@ function Main() {
         </div>
         <div className='rightBlock'>
           <h1>Build your business like no other.</h1>
-          <p>See what viewers are saying about your product and create better user experience.</p>
+          <p>We help businesses devise marketing strategies which help them unleash their true potential.</p>
         </div>
       </div>
       {/* Solutions Section */}
@@ -47,10 +49,25 @@ function Main() {
          </div>
       </div>
       {/* Customer Stories */}
-      <div className='customerStories'>
+      {/* <div className='customerStories'>
           <h2>Success Stories</h2>
           <p>Hear from our clients as to what they have to say about our platform.</p>
         <button className='getStarted'>Check All Stories!</button>
+      </div> */}
+      <h2>Contact Us!!</h2>
+      <div className='main_contact'>
+        <div className='main_contactEmail'>
+          <p>Email Us
+            <br />
+            <a href='mailto:contact@brandit.net'>contact@brandit.net</a>
+            <br />
+            <a href='mailto:satyambhardwaj@brandit.net'>satyambhardwaj@brandit.net</a>
+          </p>
+        </div>
+        <div className='main_socialMedia'>
+          <InstagramIcon />
+          <TwitterIcon />
+        </div>
       </div>
     </div>
   )
